@@ -2,18 +2,34 @@
 
 set -euo pipefail
 
-dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm\
+	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf5 config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
 dnf5 install -y\
-	tmux sway swaybg mako wl-clipboard grim slurp alacritty git fish\
-	firefox telegram dnf5-plugins
+	tmux sway swaybg mako wl-clipboard grim slurp kitty bat git fish\
+	firefox telegram dnf5-plugins greetd polkit-gnome fuzzel waybar\
+	power-profiles-daemon papirus-icon-theme btop fastfetch fd-find\
+	fzf htop ripgrep starship tree golang nodejs-npm thunderbird neovim\
+	imv inkscape mpv bluez-utils blueman tailscale nmap wget android-tools\
+	brightnessctl gvfs-mtp usbutils p7zip p7zip-plugins unzip zip intel-media-driver\
+	intel-vpl-gpu-rt mesa-vulkan-drivers mesa-dri-drivers.i686 mesa-libGL.i686\
+	mesa-vulkan-drivers.i686 steam alsa-sof-firmware
 
 dnf5 -y copr enable lizardbyte/beta
 dnf5 -y install Sunshine
 dnf5 -y copr disable lizardbyte/beta
 
-#### Example for enabling a System Unit File
+dnf5 -y copr enable solopasha/hyprland
+dnf5 -y install hypridle hyprlock hyprpicker
+dnf5 -y copr disable solopasha/hyprland
+
+dnf5 -y copr enable lihaohong/yazi
+dnf5 -y install yazi
+dnf5 -y copr disable lihaohong/yazi
 
 systemctl enable podman.socket
+sudo systemctl enable tailscaled.socket
 
 systemctl mask systemd-remount-fs.service
