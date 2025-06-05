@@ -7,10 +7,10 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 
 dnf5 install -y\
 	tmux sway swaybg mako wl-clipboard grim slurp kitty bat git fish\
-	firefox telegram dnf5-plugins greetd polkit-gnome fuzzel waybar\
+	firefox telegram dnf5-plugins greetd lxpolkit fuzzel waybar\
 	power-profiles-daemon papirus-icon-theme btop fastfetch fd-find\
-	fzf htop ripgrep starship tree golang nodejs-npm thunderbird neovim\
-	imv inkscape mpv bluez-utils blueman nmap wget android-tools\
+	fzf htop ripgrep tree golang nodejs-npm thunderbird neovim\
+	imv inkscape mpv blueman nmap wget android-tools\
 	brightnessctl gvfs-mtp usbutils p7zip p7zip-plugins unzip zip intel-media-driver\
 	intel-vpl-gpu-rt mesa-vulkan-drivers mesa-dri-drivers.i686 mesa-libGL.i686\
 	mesa-vulkan-drivers.i686 steam alsa-sof-firmware
@@ -29,6 +29,10 @@ dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr enable lihaohong/yazi
 dnf5 -y install yazi
 dnf5 -y copr disable lihaohong/yazi
+
+dnf5 -y copr enable atim/starship
+dnf5 -y install starship
+dnf5 -y copr disable atim/starship
 
 systemctl enable podman.socket
 sudo systemctl enable tailscaled.socket
