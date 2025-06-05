@@ -35,6 +35,6 @@ dnf5 -y install starship
 dnf5 -y copr disable atim/starship
 
 systemctl enable podman.socket
-sudo systemctl enable tailscaled.socket
+systemctl enable tailscaled.service
 
 systemctl mask systemd-remount-fs.service
