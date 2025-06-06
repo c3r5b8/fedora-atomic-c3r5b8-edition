@@ -8,7 +8,7 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 dnf5 install -y\
 	tmux sway swaybg mako wl-clipboard grim slurp kitty bat git fish\
 	firefox telegram dnf5-plugins greetd lxpolkit fuzzel waybar\
-	power-profiles-daemon papirus-icon-theme btop fastfetch fd-find\
+	power-profiles-daemon papirus-icon-theme btop fd-find\
 	fzf htop ripgrep tree golang nodejs-npm thunderbird neovim\
 	imv inkscape mpv blueman nmap wget android-tools\
 	brightnessctl gvfs-mtp usbutils p7zip p7zip-plugins unzip zip intel-media-driver\
